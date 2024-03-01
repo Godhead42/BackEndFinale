@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectionString = 'mongodb://localhost:27017/Temirlan'
+const connectionString = 'mongodb+srv://tilesjan2005:SaWesektDmkqXgeP@travel.8qnpcjc.mongodb.net/?retryWrites=true&w=majority&appName=travel'
 
 mongoose.connect(connectionString, {})
 
