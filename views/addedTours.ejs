@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="eng">
+<%- include('head') %>
+<body>
+<%- include('navbar') %>
+
+<div class="container">
+    <h1>Added Tours</h1>
+    <% addedTours.forEach(function(entry, index) { %>
+        <% if (index % 3 === 0) { %>
+        <div class="row">
+            <% } %>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">City Name: <%= entry.tour.cityName %></h5>
+                        <p class="card-text">Adults: <%= entry.tour.adults %></p>
+                        <p class="card-text">Children: <%= entry.tour.children %></p>
+                        <p class="card-text">Phone: <%= entry.tour.phone %></p>
+                        <p class="card-text">Hotel Rating: <%= entry.tour.hotelRating %></p>
+                        <p class="card-text">Date of Arrival: <%= entry.tour.dateArrival %></p>
+                        <p class="card-text">Date of Departure: <%= entry.tour.dateDeparture %></p>
+                        <p class="card-text">Price: <%= entry.tour.price %></p>
+                        <p class="card-text">Temperature: <%= entry.tour.temp %></p>
+                        <p class="card-text">Condition: <%= entry.tour.condition %></p>
+                        <p class="card-text">Condition: <%= entry.tour.status %></p>
+                        <form method="post" action="/history/delete/<%= entry.tour._id %>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <% if ((index + 1) % 3 === 0 || index === addedTours.length - 1) { %>
+        </div>
+        <% } %>
+    <% }); %>
+</div>
+
+<%- include('footer') %>
+</body>
+</html>

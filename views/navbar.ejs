@@ -1,0 +1,49 @@
+<!-- Your EJS template file (e.g., header.ejs) -->
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <a class="navbar-brand" href="/">Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto px-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/travelagency">Destinations</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contacts">Contact</a>
+                </li>
+
+                <% if (role) { %>
+                    <!-- Render these items when the user is logged in -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/history/added">Added tours</a></li>
+                            <li><a class="dropdown-item" href="/history/deleted">Deleted Tours</a></li>
+                            <% if (role === 'Admin') { %>
+                                <li><a class="dropdown-item" href="/admin">Admin</a></li>
+                            <% } %>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                <% } else { %>
+                    <!-- Render these items when the user is not logged in -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registration">Registration</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+</header>

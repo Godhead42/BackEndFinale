@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<head>
+    <style>
+        #bookingForm {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 9999;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #bookingForm div {
+            max-width: 500px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 1%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            animation: fadeOut 0.5s;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<%- include('navbar') %>
+<div class="container mt-5">
+    <h2 class="mb-4">Admin Panel</h2>
+
+    <!-- Display Tours -->
+    <div class="card">
+        <div class="card-header">
+            Tours
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Adults</th>
+                    <th>Children</th>
+                    <th>Phone</th>
+                    <th>Hotel Rating</th>
+                    <th>Date Arrival</th>
+                    <th>Date Departure</th>
+                    <th>Price</th>
+                    <th>Temperature</th>
+                    <th>Condition</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% tours.forEach(tour => { %>
+                    <tr>
+                        <td><%= tour.cityName %></td>
+                        <td><%= tour.adults %></td>
+                        <td><%= tour.children %></td>
+                        <td><%= tour.phone %></td>
+                        <td><%= tour.hotelRating %></td>
+                        <td><%= new Date(tour.dateArrival).toLocaleDateString() %></td>
+                        <td><%= new Date(tour.dateDeparture).toLocaleDateString() %></td>
+                        <td><%= tour.price %></td>
+                        <td><%= tour.temp %></td>
+                        <td><%= tour.condition %></td>
+                        <td>
+                            <form class="d-inline" data-tour='<%= JSON.stringify(tour) %>'>
+                                <button type="button" class="btn btn-warning btn-sm btn-update">Update</button>
+                            </form>
+                            <form class="d-inline" data-tour-id='<%= tour._id %>'>
+                                <button type="button" class="btn btn-danger btn-sm btn-delete">Delete</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Create Tour Form -->
+    <div class="card mt-4">
+        <div class="card-header">
+            Create new tour!
+        </div>
+        <div class="card-body">
+            <form action="/admin" method="post">
+                <button type="submit" class="btn btn-primary">Create!</button>
+            </form>
+        </div>
+        <div class="card-header">
+            Arise price for tours
+        </div>
+        <div class="card-body">
+            <form id="increasePriceForm">
+                <div class="form-group">
+                    <label for="increaseAmount">Amount</label>
+                    <input type="text" class="form-control" id="increaseAmount" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-increase" onclick="increasePrices()">Increase price</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div id="bookingForm" style="display: none;">
+    <div id="form" >
+        <div class="form-group">
+            <label for="cityName">City:</label>
+            <input type="text" class="form-control" id="cityNameEdit" name="cityNameEdit" readonly>
+        </div>
+        <div class="form-group">
+            <label for="adults">Adults:</label>
+            <input type="number" class="form-control" id="adultsEdit" name="adultsEdit" placeholder="How many adults?">
+        </div>
+        <div class="form-group">
+            <label for="children">Children:</label>
+            <input type="number" class="form-control" id="childrenEdit" name="childrenEdit" placeholder="How many children?">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" class="form-control" id="phoneEdit" name="phoneEdit" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="hotelRating">Hotel Rating:</label>
+            <select class="form-control" id="hotelRatingEdit" name="hotelRatingEdit">
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Date arrival:</label>
+            <input type="date" class="form-control" id="dateArrivalEdit" name="dateArrivalEdit" placeholder="Enter arriving date:">
+        </div>
+        <div class="form-group">
+            <label for="date">Date departure:</label>
+            <input type="date" class="form-control" id="dateDepartureEdit" name="dateDepartureEdit" placeholder="Enter departure date:">
+        </div>
+        <input type="hidden" value="" id="tourIdEdit">
+        <button type="button" class="btn btn-primary btn-submit" onclick="submitForm()">Submit</button>
+        <button type="button" class="btn btn-secondary" onclick="hideForm()">Exit</button>
+    </div>
+
+</div>
+<script src="./scripts/admin.js" defer></script>
+<%- include('footer') %>
+</body>
+</html>

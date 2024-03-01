@@ -1,0 +1,39 @@
+{
+    "name": "BackEndheroFinale",
+    "version": "1.0.0",
+    "description": "travel agency",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Godhead42/BackEndFinale.git"
+    },
+    "author": "Dos",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Godhead42/BackEndFinale/issues"
+    },
+    "homepage": "https://github.com/Godhead42/BackEndFinale#readme",
+    "dependencies": {
+        "axios": "^1.6.7",
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.20.2",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "fs": "^0.0.1-security",
+        "helmet": "^7.1.0",
+        "heroku": "^8.10.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.2.0",
+        "node-fetch": "^3.3.2",
+        "unsplash-js": "^7.0.19"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    }
+}
