@@ -42,16 +42,17 @@
 <body>
 <%- include('navbar') %>
 <div class="container mt-4">
-    <h2>Available Tours</h2>
+    <h2>Available Courses</h2>
     <div class="row mb-4">
         <% const cities = [
-            { name: 'Kyoto', imgSrc: 'img/kyoto.png', description: 'Experience the serenity and elegance of Kyoto in Japan. From traditional tea ceremonies to iconic cherry blossoms, immerse yourself in the rich cultural heritage and picturesque landscapes that Kyoto has to offer.' },
-            { name: 'Rome', imgSrc: 'img/rome.png', description: 'Discover the eternal beauty of Rome in Italy. Walk through ancient ruins, indulge in delicious cuisine, and soak in the vibrant atmosphere of the city. A perfect blend of history, art, and culinary delights awaits you.' },
-            { name: 'Sydney', imgSrc: 'img/sydney.png', description: 'Explore the vibrant city of Sydney in Australia. From the iconic Sydney Opera House to beautiful beaches, Sydney offers a perfect blend of urban sophistication and natural beauty. Join us for an unforgettable experience down under.' },
-            { name: 'Rio de Janeiro', imgSrc: 'img/rio.png', description: 'Dance to the rhythm of samba in the lively streets of Rio de Janeiro, Brazil. Explore the iconic Christ the Redeemer statue, relax on Copacabana beach, and immerse yourself in the vibrant culture of this South American gem.' },
-            { name: 'Bangkok', imgSrc: 'img/bangkok.png', description: 'Experience the bustling city life and rich traditions of Bangkok in Thailand. From ornate temples to vibrant street markets, Bangkok offers a perfect blend of modernity and tradition. Join us for an adventure in the Land of Smiles.' },
-            { name: 'Antalia', imgSrc: 'img/antalia.png', description: 'Explore the captivating beauty of Antalia in Turkey. Immerse yourself in the rich history, vibrant culture, and stunning landscapes. Whether you\'re a history enthusiast, a nature lover, or simply seeking a relaxing getaway, Turkey Antalia has something for everyone.' },
-            // Add more cities as needed
+        { name: 'JavaScript Fundamentals', imgSrc: 'img/Javascript.jpg', description: 'Learn the basics of JavaScript programming language. This course covers essential concepts such as variables, functions, conditionals, loops, and more.' },
+        { name: 'HTML & CSS Essentials', imgSrc: 'img/essan.png', description: 'Master the fundamentals of HTML and CSS to build beautiful and responsive websites. This course provides hands-on experience in creating layouts, styling elements, and optimizing web pages.' },
+        { name: 'Python for Beginners', imgSrc: 'img/python.jpg', description: 'Discover the power of Python programming language from scratch. This course introduces fundamental concepts including data types, control structures, functions, and object-oriented programming.' },
+        { name: 'Web Development Bootcamp', imgSrc: 'img/webdep.jpg', description: 'Become a full-stack web developer with our comprehensive bootcamp. This course covers front-end technologies like HTML, CSS, JavaScript, as well as back-end frameworks like Node.js and Express.' },
+        { name: 'Data Science Essentials', imgSrc: 'img/datasc.jpg', description: 'Dive into the world of data science with our introductory course. Learn data analysis, visualization, and machine learning techniques using popular Python libraries such as Pandas, Matplotlib, and Scikit-learn.' },
+        { name: 'React & Redux Masterclass', imgSrc: 'img/react.jpg', description: 'Build interactive and dynamic web applications with React and Redux. This course teaches you how to create reusable components, manage state effectively, and handle complex data flows.' },
+        // Add more courses as needed
+        
         ]; %>
 
         <% cities.forEach(city => { %>
@@ -75,12 +76,12 @@
             </div>
             <div class="form-group">
                 <label for="adults">Students:</label>
-                <input type="number" class="form-control" id="adults" name="adults" placeholder="How many adults?">
+                <input type="number" class="form-control" id="adults" name="adults" placeholder="How many students?">
             </div>
             <div class="form-group">
                 <label for="children"> Followers:</label>
                 <input type="number" class="form-control" id="children" name="children"
-                       placeholder="How many children?">
+                       placeholder="How many followers?">
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>

@@ -57,9 +57,9 @@
                     <th>Students</th>
                     <th>Followers</th>
                     <th>Phone</th>
-                    <th>Course Rating</th>
-                    <th>Date of Start</th>
-                    <th>Date of End</th>
+                    <th>Hotel Rating</th>
+                    <th>Date start</th>
+                    <th>Date end</th>
                     <th>Price</th>
                     <th>Temperature</th>
                     <th>Condition</th>
@@ -130,14 +130,18 @@
         </div>
         <div class="form-group">
             <label for="adults">Students :</label>
-            <input type="number" class="form-control" id="adultsEdit" name="adultsEdit" placeholder="How many adults?">
+            <input type="number" class="form-control" id="adultsEdit" name="adultsEdit" placeholder="How many students">
+        </div>
+        <div class="form-group">
+            <label for="children">Followers:</label>
+            <input type="number" class="form-control" id="childrenEdit" name="childrenEdit" placeholder="How many followers?">
         </div>
         <div class="form-group">
             <label for="phone">Phone:</label>
             <input type="tel" class="form-control" id="phoneEdit" name="phoneEdit" placeholder="Enter your phone number">
         </div>
         <div class="form-group">
-            <label for="hotelRating">Course Rating:</label>
+            <label for="hotelRating">Hotel Rating:</label>
             <select class="form-control" id="hotelRatingEdit" name="hotelRatingEdit">
                 <option value="1">1 Star</option>
                 <option value="2">2 Stars</option>
@@ -147,11 +151,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="date">Date from:</label>
+            <label for="date">Date arrival:</label>
             <input type="date" class="form-control" id="dateArrivalEdit" name="dateArrivalEdit" placeholder="Enter arriving date:">
         </div>
         <div class="form-group">
-            <label for="date">Date to:</label>
+            <label for="date">Date departure:</label>
             <input type="date" class="form-control" id="dateDepartureEdit" name="dateDepartureEdit" placeholder="Enter departure date:">
         </div>
         <input type="hidden" value="" id="tourIdEdit">
