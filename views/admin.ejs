@@ -69,16 +69,18 @@
                 <tbody>
                 <% tours.forEach(tour => { %>
                     <tr>
-                        <td><%= tour.cityName %></td>
-                        <td><%= tour.adults %></td>
-                        <td><%= tour.children %></td>
+                        <td><%= tour.courseName %></td>
+                        <td><%= tour.students %></td>
                         <td><%= tour.phone %></td>
-                        <td><%= tour.hotelRating %></td>
-                        <td><%= new Date(tour.dateArrival).toLocaleDateString() %></td>
-                        <td><%= new Date(tour.dateDeparture).toLocaleDateString() %></td>
+                        <td><%= tour.courseRating %></td>
+                        <td><%= tour.date %></td>
+                        <td><%= tour.duration %></td>
                         <td><%= tour.price %></td>
+                        <td><%= tour.level %></td>
                         <td><%= tour.temp %></td>
                         <td><%= tour.condition %></td>
+                        <td><%= tour.status %></td>
+                        
                         <td>
                             <form class="d-inline" data-tour='<%= JSON.stringify(tour) %>'>
                                 <button type="button" class="btn btn-warning btn-sm btn-update">Update</button>
@@ -98,15 +100,15 @@
     <!-- Create Tour Form -->
     <div class="card mt-4">
         <div class="card-header">
-            Create new tour!
+            Create new course!
         </div>
         <div class="card-body">
             <form action="/admin" method="post">
                 <button type="submit" class="btn btn-primary">Create!</button>
             </form>
         </div>
-        <div class="card-header">
-            Arise price for tours
+        <div class="card-header">   
+            Arise price for courses
         </div>
         <div class="card-body">
             <form id="increasePriceForm">
@@ -123,23 +125,19 @@
 <div id="bookingForm" style="display: none;">
     <div id="form" >
         <div class="form-group">
-            <label for="cityName">City:</label>
+            <label for="cityName">Course Name :</label>
             <input type="text" class="form-control" id="cityNameEdit" name="cityNameEdit" readonly>
         </div>
         <div class="form-group">
-            <label for="adults">Adults:</label>
+            <label for="adults">Students :</label>
             <input type="number" class="form-control" id="adultsEdit" name="adultsEdit" placeholder="How many adults?">
-        </div>
-        <div class="form-group">
-            <label for="children">Children:</label>
-            <input type="number" class="form-control" id="childrenEdit" name="childrenEdit" placeholder="How many children?">
         </div>
         <div class="form-group">
             <label for="phone">Phone:</label>
             <input type="tel" class="form-control" id="phoneEdit" name="phoneEdit" placeholder="Enter your phone number">
         </div>
         <div class="form-group">
-            <label for="hotelRating">Hotel Rating:</label>
+            <label for="hotelRating">Course Rating:</label>
             <select class="form-control" id="hotelRatingEdit" name="hotelRatingEdit">
                 <option value="1">1 Star</option>
                 <option value="2">2 Stars</option>
@@ -149,11 +147,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="date">Date arrival:</label>
+            <label for="date">Date from:</label>
             <input type="date" class="form-control" id="dateArrivalEdit" name="dateArrivalEdit" placeholder="Enter arriving date:">
         </div>
         <div class="form-group">
-            <label for="date">Date departure:</label>
+            <label for="date">Date to:</label>
             <input type="date" class="form-control" id="dateDepartureEdit" name="dateDepartureEdit" placeholder="Enter departure date:">
         </div>
         <input type="hidden" value="" id="tourIdEdit">
