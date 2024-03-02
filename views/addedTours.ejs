@@ -14,23 +14,40 @@
             <div class="col-md-4">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Course Name: <%= entry.course.courseName %></h5>
-                        <p class="card-text">Students: <%= entry.course.students %></p>
-                        <p class="card-text">Phone: <%= entry.course.phone %></p>
-                        <p class="card-text">Course Rating: <%= entry.course.courseRating %></p>
-                        <p class="card-text">Date: <%= entry.course.date %></p>
-                        <p class="card-text">Duration: <%= entry.course.duration %></p>
-                        <p class="card-text">Price: <%= entry.course.price %></p>
-                        <p class="card-text">Level: <%= entry.course.level %></p>
-                        <p class="card-text">Temperature: <%= entry.course.temp %></p>
-                        <p class="card-text">Condition: <%= entry.course.condition %></p>
-                        <p class="card-text">Condition: <%= entry.course.status %></p>
-                        <form method="post" action="/history/delete/<%= entry.course._id %>">
+                        <h5 class="card-title">City Name: <%= entry.tour.cityName %></h5>
+                        <p class="card-text">Adults: <%= entry.tour.adults %></p>
+                        <p class="card-text">Children: <%= entry.tour.children %></p>
+                        <p class="card-text">Phone: <%= entry.tour.phone %></p>
+                        <p class="card-text">Hotel Rating: <%= entry.tour.hotelRating %></p>
+                        <p class="card-text">Date of Arrival: <%= entry.tour.dateArrival %></p>
+                        <p class="card-text">Date of Departure: <%= entry.tour.dateDeparture %></p>
+                        <p class="card-text">Price: <%= entry.tour.price %></p>
+                        <p class="card-text">Temperature: <%= entry.tour.temp %></p>
+                        <p class="card-text">Condition: <%= entry.tour.condition %></p>
+                        <p class="card-text">Condition: <%= entry.tour.status %></p>
+                        <form method="post" action="/history/delete/<%= entry.tour._id %>">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <!-- Карточный блок для информации о курсе -->
+<div class="col-md-4">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Course Name: <%= entry.course.courseName %></h5>
+            <p class="card-text">Students: <%= entry.course.students %></p>
+            <!-- Другие свойства курса, такие как дата, продолжительность, уровень, и т.д. -->
+            <p class="card-text">Date: <%= entry.course.date %></p>
+            <p class="card-text">Duration: <%= entry.course.duration %></p>
+            <p class="card-text">Level: <%= entry.course.level %></p>
+            <form method="post" action="/history/delete/<%= entry.course._id %>">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 
             <% if ((index + 1) % 3 === 0 || index === addedTours.length - 1) { %>
